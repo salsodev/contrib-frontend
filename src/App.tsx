@@ -14,6 +14,12 @@ export async function checkIsLoggedInLoader() {
 
     return response;
   } catch (err: any) {
+    console.log(err);
+
+    if (err.code === "ERR_NETWORK") {
+      throw new Response("Please check your internet connection and try again");
+    }
+
     return err.response?.data;
   }
 }

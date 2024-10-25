@@ -16,6 +16,8 @@ function Error404() {
     errorMessage = "Unknown error";
   }
 
+  console.log(error);
+
   return (
     <section className="flex flex-col h-screen justify-center gap-3">
       <TypographyH1>Ooops! Something went wrong</TypographyH1>
