@@ -12,11 +12,16 @@ import { Form } from "@/components/ui/form";
 import { UserLoginSchema, UserLoginSchemaType } from "@/models/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import useLogin from "../hooks/useLogin";
+import { useEffect } from "react";
 
 function LoginForm() {
-  const { mutate } = useLogin();
+  const { mutate, isSuccess } = useLogin();
+  const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+  const redirectTo = searchParams.get("redirectTo");
 
   const form = useForm<UserLoginSchemaType>({
     resolver: zodResolver(UserLoginSchema),
@@ -30,6 +35,14 @@ function LoginForm() {
   const onSubmit = (data: UserLoginSchemaType) => {
     mutate(data);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      if (!!redirectTo) return navigate(`${redirectTo}`, { replace: true });
+
+      return navigate("/dashboard");
+    }
+  }, [isSuccess]);
 
   return (
     <Card className="mx-auto max-w-md my-20 border-gray-700">

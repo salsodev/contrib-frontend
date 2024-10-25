@@ -18,6 +18,12 @@ export const loginUser = async (payload: UserLoginSchemaType) => {
   return response.data;
 };
 
+export const logoutUser = async () => {
+  const response = await apiClient.get("auth/logout");
+
+  return response.data;
+};
+
 export const requestPasswordResetLink = async (
   payload: UserForgotPasswordSchemaType
 ) => {
@@ -34,6 +40,12 @@ export const resetPassword = async (
     `auth/resetPassword/${resetToken}`,
     payload
   );
+
+  return response.data;
+};
+
+export const isSignedIn = async () => {
+  const response = await apiClient.get("auth/isLoggedIn");
 
   return response.data;
 };

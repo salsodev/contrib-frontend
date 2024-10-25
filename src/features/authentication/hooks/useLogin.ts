@@ -1,22 +1,10 @@
 import { toast } from "@/hooks/use-toast";
 import { loginUser } from "@/services/auth";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 
 function useLogin() {
-  const navigate = useNavigate();
-
-  const { mutate, isPending } = useMutation({
+  const { mutate, isPending, isSuccess, data } = useMutation({
     mutationFn: loginUser,
-    onSuccess: (data) => {
-      console.log(data);
-      toast({
-        title: "Welcome buddy!",
-        description: "You've logged in successfully",
-      });
-
-      navigate("/");
-    },
     onError: (error: any) => {
       toast({
         title: error.response.data.status,
@@ -25,6 +13,6 @@ function useLogin() {
     },
   });
 
-  return { mutate, isPending };
+  return { mutate, data, isPending, isSuccess };
 }
 export default useLogin;
