@@ -31,16 +31,16 @@ function RegistrationForm() {
   });
 
   const onSubmit = (payload: UserSignupSchemaType) => {
-    const response = mutate(payload);
-
-    console.log(response);
+    mutate(payload);
   };
 
   return (
-    <Card className="mx-auto max-w-md my-20 border-gray-700">
+    <Card className="mx-auto max-w-md mt-20 border-gray-700 dark:text-gray-400 text-gray-600">
       <CardHeader>
-        <CardTitle className="text-2xl">Register</CardTitle>
-        <CardDescription className="text-gray-400">
+        <CardTitle className="text-2xl text-black dark:text-white">
+          Register
+        </CardTitle>
+        <CardDescription className="">
           Enter your details below and take the first step to an exhilarating
           contributions
         </CardDescription>
@@ -99,7 +99,7 @@ function RegistrationForm() {
               required={true}
             />
 
-            <Button type="submit" className="w-full bg-sky-700">
+            <Button type="submit" className="w-full bg-sky-700 text-white">
               Create an account
             </Button>
           </form>

@@ -6,12 +6,18 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
-import Overview from "./features/dashboard/overview/Overview";
-import Settings from "./features/dashboard/settings/Settings";
-import Contributors from "./features/dashboard/users/Contributors";
 import AppLayout from "./layouts/global/AppLayout";
-import Contribution from "./features/dashboard/contributions/Contribution";
+import Contribution from "./features/dashboard/menu/Contribution";
 import { checkIsLoggedInLoader } from "./App";
+import Overview from "./features/dashboard/menu/Overview";
+import Contributors from "./features/dashboard/menu/Contributors";
+import { Settings } from "lucide-react";
+import Inbox from "./features/dashboard/menu/Inbox";
+import Help from "./features/dashboard/support/help";
+import Report from "./features/dashboard/support/report";
+import Transaction from "./features/dashboard/menu/Transaction";
+import PrivateChat from "./features/dashboard/chats/PrivateChat";
+import GroupChat from "./features/dashboard/chats/GroupChat";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
         element: <Overview />,
       },
       {
+        path: "inbox",
+        element: <Inbox />,
+      },
+      {
         path: "contributors",
         element: <Contributors />,
       },
@@ -60,8 +70,28 @@ const router = createBrowserRouter([
         element: <Contribution />,
       },
       {
+        path: "transactions",
+        element: <Transaction />,
+      },
+      {
         path: "settings",
         element: <Settings />,
+      },
+      {
+        path: "help",
+        element: <Help />,
+      },
+      {
+        path: "report",
+        element: <Report />,
+      },
+      {
+        path: "chat/private",
+        element: <PrivateChat />,
+      },
+      {
+        path: "chat/group",
+        element: <GroupChat />,
       },
     ],
   },

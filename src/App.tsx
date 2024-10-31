@@ -4,34 +4,36 @@ import { Toaster } from "./components/ui/toaster";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
 import AuthProvider from "./contexts/auth";
-import { isSignedIn } from "./services/auth";
+import { ThemeProvider } from "./contexts/theme";
+// import { isSignedIn } from "./services/auth";
 
 const queryClient = new QueryClient();
 
 export async function checkIsLoggedInLoader() {
-  try {
-    const response: any = await isSignedIn();
+  return null;
+  // try {
+  //   const response: any = await isSignedIn();
 
-    return response;
-  } catch (err: any) {
-    console.log(err);
+  //   return response;
+  // } catch (err: any) {
+  //   if (err.code === "ERR_NETWORK") {
+  //     throw new Response("Please check your internet connection and try again");
+  //   }
 
-    if (err.code === "ERR_NETWORK") {
-      throw new Response("Please check your internet connection and try again");
-    }
-
-    return err.response?.data;
-  }
+  //   return err.response?.data;
+  // }
 }
 
 function App() {
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <Toaster />
-      </QueryClientProvider>
-    </AuthProvider>
+    <ThemeProvider defaultTheme="dark">
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <Toaster />
+        </QueryClientProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

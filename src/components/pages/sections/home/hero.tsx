@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
-    <section className="flex flex-col gap-5 items-center justify-center mt-20">
+    <section className="flex flex-col gap-5 items-center justify-center mt-20 ">
       <div className="flex flex-col gap-4">
         <TypographyH1>Join a community driven by a purpose.</TypographyH1>
         <TypographyP>

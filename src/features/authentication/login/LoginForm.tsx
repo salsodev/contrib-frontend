@@ -45,10 +45,12 @@ function LoginForm() {
   }, [isSuccess]);
 
   return (
-    <Card className="mx-auto max-w-md my-20 border-gray-700">
+    <Card className="mx-auto max-w-md mt-20 border-gray-700 dark:text-gray-400 text-gray-600">
       <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
-        <CardDescription className="text-gray-400">
+        <CardTitle className="text-2xl text-black dark:text-white">
+          Login
+        </CardTitle>
+        <CardDescription>
           Welcome back. A quick login credentials is needed to have you proceed
         </CardDescription>
       </CardHeader>
@@ -80,7 +82,7 @@ function LoginForm() {
               </Link>
             </FormFieldInput>
 
-            <Button type="submit" className="w-full bg-sky-700">
+            <Button type="submit" className="w-full bg-sky-700 text-white">
               Sign in
             </Button>
           </form>

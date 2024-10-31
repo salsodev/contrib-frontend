@@ -34,10 +34,12 @@ function ForgotPasswordForm() {
   };
 
   return (
-    <Card className="mx-auto max-w-md my-20 border-gray-700">
+    <Card className="mx-auto max-w-md my-20 border-gray-700 dark:text-gray-400 text-gray-600">
       <CardHeader>
-        <CardTitle className="text-2xl">Forgot Password?</CardTitle>
-        <CardDescription className="text-gray-400">
+        <CardTitle className="text-2xl text-black dark:text-white">
+          Forgot Password?
+        </CardTitle>
+        <CardDescription>
           Not to worry. Let's get you a new password in a minute
         </CardDescription>
       </CardHeader>
@@ -53,7 +55,7 @@ function ForgotPasswordForm() {
               inputClassName="border-gray-700"
             />
 
-            <Button type="submit" className="w-full bg-sky-700">
+            <Button type="submit" className="w-full bg-sky-700 text-white">
               Send me the link
             </Button>
           </form>
