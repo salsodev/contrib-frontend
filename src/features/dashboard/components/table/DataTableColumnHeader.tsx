@@ -44,17 +44,26 @@ function DataTableColumnHeader<TData, TValue>({
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-black text-white">
-        <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
+      <DropdownMenuContent className="w-[150px] bg-popover text-popover-foreground border-border-color">
+        <DropdownMenuItem
+          className="cursor-pointer hover:bg-sidebar-accent flex items-center"
+          onClick={() => column.toggleSorting(false)}
+        >
           <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
           Asc
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
+        <DropdownMenuItem
+          className="cursor-pointer hover:bg-sidebar-accent flex items-center"
+          onClick={() => column.toggleSorting(true)}
+        >
           <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
           Desc
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
+        <DropdownMenuItem
+          className="cursor-pointer hover:bg-sidebar-accent flex items-center"
+          onClick={() => column.toggleVisibility(false)}
+        >
           <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
           Hide
         </DropdownMenuItem>

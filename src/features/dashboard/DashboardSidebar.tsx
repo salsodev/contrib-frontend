@@ -11,8 +11,10 @@ import {
 } from "@/components/ui/sidebar";
 import {
   BadgeHelp,
+  Banknote,
   BarChart3,
   HandCoins,
+  Handshake,
   Home,
   Mail,
   Megaphone,
@@ -20,6 +22,7 @@ import {
   MessageCircleMore,
   PersonStanding,
   Settings,
+  WalletCards,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SidebarHead from "./sidebarHeader";
@@ -37,18 +40,13 @@ const menu = [
   },
   {
     path: "/dashboard/contributors",
-    title: "Contributors",
+    title: "Users Management",
     icon: PersonStanding,
   },
   {
     path: "/dashboard/contributions",
     title: "Contributions",
     icon: HandCoins,
-  },
-  {
-    path: "/dashboard/transactions",
-    title: "Transactions",
-    icon: BarChart3,
   },
   {
     path: "/dashboard/settings",
@@ -83,10 +81,33 @@ const chatMenu = [
   },
 ];
 
+const cardMenu = [
+  {
+    path: "/dashboard/card",
+    title: "Account",
+    icon: WalletCards,
+  },
+  {
+    path: "/dashboard/card/transfer",
+    title: "Transfer",
+    icon: Handshake,
+  },
+  {
+    path: "/dashboard/card/withdraw",
+    title: "Withdrawal",
+    icon: Banknote,
+  },
+  {
+    path: "/dashboard/card/transactions",
+    title: "Transactions",
+    icon: BarChart3,
+  },
+];
+
 function DashboardSidebar() {
   return (
     <aside>
-      <Sidebar collapsible="icon">
+      <Sidebar collapsible="icon" className="border-sidebar-border">
         <SidebarHead />
         <SidebarContent>
           <SidebarGroup>
@@ -94,6 +115,25 @@ function DashboardSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 {menu.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild isActive>
+                      <Link to={item.path}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                    <SidebarMenuAction />
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+          {/* Second Group */}
+          <SidebarGroup>
+            <SidebarGroupLabel>Payments</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {cardMenu.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive>
                       <Link to={item.path}>

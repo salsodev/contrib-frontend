@@ -15,9 +15,11 @@ import { Settings } from "lucide-react";
 import Inbox from "./features/dashboard/menu/Inbox";
 import Help from "./features/dashboard/support/help";
 import Report from "./features/dashboard/support/report";
-import Transaction from "./features/dashboard/menu/Transaction";
+import Transaction from "./features/dashboard/payment/Transaction";
 import PrivateChat from "./features/dashboard/chats/PrivateChat";
 import GroupChat from "./features/dashboard/chats/GroupChat";
+import Transfer from "./features/dashboard/payment/Transfer";
+import Withdrawal from "./features/dashboard/payment/Withdrawal";
 
 const router = createBrowserRouter([
   {
@@ -70,8 +72,16 @@ const router = createBrowserRouter([
         element: <Contribution />,
       },
       {
-        path: "transactions",
+        path: "card/transactions",
         element: <Transaction />,
+      },
+      {
+        path: "card/transfer",
+        element: <Transfer />,
+      },
+      {
+        path: "card/withdraw",
+        element: <Withdrawal />,
       },
       {
         path: "settings",

@@ -5,7 +5,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background)",
+        background: "hsl(var(--background))",
+        "background-foreground": "hsl(var(--foreground))",
+        "dashboard-background": "hsl(var(--dashboard-background))",
+        "dashboard-background-header":
+          "hsl(var(--dashboard-background-header))",
+
+        "border-color": "hsl(var(--border))",
+        muted: "hsl(var(--muted))",
+
+        card: {
+          DEFAULT: "hsla(var(--card))",
+          foreground: "hsla(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsla(var(--popover))",
+          foreground: "hsla(var(--popover-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

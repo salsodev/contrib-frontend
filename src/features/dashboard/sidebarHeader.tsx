@@ -45,7 +45,7 @@ function SidebarHead() {
             <DropdownMenuTrigger asChild>
               <SidebarMenuButton
                 size="lg"
-                className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground bg-slate-100 dark:bg-[#111313] dark:text-white text-black py-6"
+                className="data-[state=open]:bg-sidebar-accent bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground py-6"
               >
                 <span className="flex aspect-square justify-center items-center bg-green-500 text-white text-xs rounded-md p-[2px] w-6 h-6">
                   {compIcon}
@@ -56,7 +56,7 @@ function SidebarHead() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="start"
-              className="w-[--radix-dropdown-menu-trigger-width] bg-slate-50 dark:bg-[#111313] text-black dark:text-white"
+              className="w-[--radix-dropdown-menu-trigger-width]"
             >
               {organizations.map((org) => (
                 <DropdownMenuItem

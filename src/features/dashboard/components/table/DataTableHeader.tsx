@@ -5,14 +5,13 @@ function DataTableHeader<TData>({ table }: { table: Table<TData> }) {
   return (
     <TableHeader>
       {table.getHeaderGroups().map((headerGroup) => (
-        <TableRow key={headerGroup.id}>
+        <TableRow
+          key={headerGroup.id}
+          className="border-none rounded-lg bg-sky-800"
+        >
           {headerGroup.headers.map((header) => {
             return (
-              <TableHead
-                style={{ width: header.getSize() }}
-                colSpan={header.colSpan}
-                key={header.id}
-              >
+              <TableHead colSpan={header.colSpan} key={header.id}>
                 {header.isPlaceholder
                   ? null
                   : flexRender(

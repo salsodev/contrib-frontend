@@ -16,8 +16,8 @@ function Overview() {
   console.log(date);
   return (
     <section>
-      <div className="flex items-stretch gap-5">
-        <Card className="bg-white w-80 dark:bg-black border-none flex-auto">
+      <div className="flex items-stretch flex-wrap gap-5">
+        <Card className="w-80 border-none flex-auto bg-card text-card-foreground">
           <CardHeader className="pt-3 px-3 pb-0">
             <div className="flex items-center justify-between gap-5 mb-1">
               <CardTitle className="text-sm">Overview</CardTitle>
@@ -59,7 +59,7 @@ function Overview() {
         </Card>
 
         {/* Second card */}
-        <Card className="bg-white w-80 dark:bg-black border-none flex-auto">
+        <Card className="w-80 border-none flex-auto bg-card text-card-foreground">
           <CardHeader className="pt-3 px-3 pb-0">
             <div className="flex items-center justify-between gap-5 mb-1">
               <CardTitle className="text-sm">Your Balance</CardTitle>
@@ -83,7 +83,7 @@ function Overview() {
         </Card>
 
         {/* Third card */}
-        <Card className="bg-white w-80 dark:bg-black border-none flex-auto">
+        <Card className="w-80 border-none flex-auto bg-card text-card-foreground">
           <CardHeader className="pt-3 px-3 pb-0">
             <div className="flex items-center justify-between gap-5 mb-1">
               <CardTitle className="text-sm">Quick action</CardTitle>

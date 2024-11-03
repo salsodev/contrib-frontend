@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import DataTable from "../components/table/DataTable";
 import { ContributionType } from "../models/table";
 import { contributionColumns } from "../components/table/columns";
+import { Button } from "@/components/ui/button";
+import { PlusIcon } from "lucide-react";
 
 function Contribution() {
   const data = useMemo<ContributionType[]>(
@@ -70,16 +72,25 @@ function Contribution() {
 
   return (
     <section className="w-full">
-      <div className="flex justify-between gap-5 w-full  mb-10">
-        <div className="flex flex-col items-center justify-center rounded-lg bg-slate-200 text-black w-24 h-24 shadow-md">
-          Salsod
+      <div className="flex justify-between items-start gap-5 w-full mb-10">
+        <div>
+          <h2 className="text-2xl font-semibold mb-2">Thrift Management</h2>
+          <p className="text-gray-400 text-sm">
+            Handle your team's contributions in one place
+          </p>
         </div>
-        <div className="flex flex-col items-center justify-center rounded-lg bg-slate-200 text-black w-24 h-24 shadow-md">
+        <Button className="flex items-center gap-1 bg-sky-700 text-white hover:bg-sky-600 rounded-lg">
+          <PlusIcon className="size-4" />
+          Add contribution
+        </Button>
+      </div>
+      {/* <div className="flex items-center gap-5 mb-7">
+        <div className="flex flex-col items-center justify-center rounded-lg bg-card text-card-foreground w-24 h-24 shadow-md"></div>
+        <div className="flex flex-col items-center justify-center rounded-lg bg-card text-card-foreground w-24 h-24 shadow-md">
           {todaysDate}
         </div>
-      </div>
-
-      <div>
+      </div> */}
+      <div className="mb-20">
         <DataTable columns={contributionColumns} data={data} />
       </div>
     </section>

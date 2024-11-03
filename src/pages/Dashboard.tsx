@@ -5,11 +5,11 @@ import {
 } from "@/components/ui/sidebar";
 // import { useAuth } from "@/contexts/auth";
 import DashboardSidebar from "@/features/dashboard/DashboardSidebar";
-import { BellRing } from "lucide-react";
 // import { useEffect } from "react";
 import { Navigate, Outlet, useLoaderData } from "react-router-dom";
-import userImage from "./../assets/user1.jpg";
 import { ThemeToggle } from "@/components/custom/theme-toggle";
+import Notification from "@/components/custom/notification";
+import UserProfile from "@/components/custom/user-profile";
 
 function Dashboard() {
   const loaderData: any = useLoaderData();
@@ -30,26 +30,26 @@ function Dashboard() {
   return (
     <SidebarProvider className="overflow-hidden">
       <DashboardSidebar />
-      <SidebarInset className="bg-sky-50 dark:bg-[#111313]">
-        <header className="flex flex-col border-white bg-white dark:bg-black text-white">
+      <SidebarInset className="bg-dashboard-background text-background-foreground">
+        <header className="flex flex-col bg-dashboard-background-header">
           <nav className="flex justify-between items-center w-full px-5 py-3">
             <div>
-              <SidebarTrigger className="text-black dark:text-white" />
+              <SidebarTrigger />
             </div>
             <div className="flex items-center gap-4">
-              <div className="flex items-center justify-center gap-5 p-2 bg-slate-100 dark:bg-[#111313] rounded-full">
+              <div className="flex items-center justify-center bg-sidebar-accent text-sidebar-accent-foreground rounded-full">
                 <ThemeToggle />
               </div>
-              <div className="flex items-center justify-center p-2 bg-[#111313] rounded-full">
-                <BellRing />
+              <div className="flex items-center justify-center cursor-pointer bg-sidebar-accent text-sidebar-accent-foreground rounded-full">
+                <Notification />
               </div>
               <div className=" flex items-center justify-center w-12 h-12 rounded-full text-white overflow-hidden">
-                <img src={userImage} alt="profile" />
+                <UserProfile />
               </div>
             </div>
           </nav>
         </header>
-        <div className="px-5 pt-5 overflow-hidden">
+        <div className="px-5 pt-5 overflow-x-scroll">
           <Outlet />
         </div>
       </SidebarInset>
